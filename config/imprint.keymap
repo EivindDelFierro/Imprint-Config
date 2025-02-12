@@ -14,14 +14,14 @@
 
         default_layer {
             bindings = <
-&kp ESC    &kp F1  &kp F2        &kp F3    &kp F4     &kp F5                  &kp F6        &kp F7         &kp F8     &kp F9    &kp F10   &kp F11
-&kp EQUAL  &kp N1  &kp N2        &kp N3    &kp N4     &kp N5                  &kp N6        &kp N7         &kp N8     &kp N9    &kp N0    &kp MINUS
-&kp TAB    &kp Q   &kp W         &kp E     &kp R      &kp T                   &kp Y         &kp U          &kp I      &kp O     &kp P     &kp BSLH
-&kp LCTRL  &kp A   &kp S         &kp D     &kp F      &kp G                   &kp H         &kp J          &kp K      &kp L     &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z   &kp X         &kp C     &kp V      &kp B                   &kp N         &kp M          &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-&trans     &trans  &kp LEFT_WIN  &kp LALT  &trans                                           &trans         &kp LBKT   &kp RBKT  &trans    &trans
-                                           &kp RET    &kp DEL  &kp LG(TAB)    &kp GRAVE     &kp BACKSPACE  &kp SPACE
-                                           &kp LC(C)  &mo 1    &mo 2          &kp CAPSLOCK  &kp LEFT_ALT   &kp LC(V)
+&kp ESC    &kp F1  &kp F2        &kp F3    &kp F4   &kp F5                    &kp F6        &kp F7         &kp F8        &kp F9    &kp F10   &kp F11
+&kp EQUAL  &kp N1  &kp N2        &kp N3    &kp N4   &kp N5                    &kp N6        &kp N7         &kp N8        &kp N9    &kp N0    &kp MINUS
+&kp TAB    &kp Q   &kp W         &kp E     &kp R    &kp T                     &kp Y         &kp U          &kp I         &kp O     &kp P     &kp BSLH
+&kp LCTRL  &kp A   &kp S         &kp D     &kp F    &kp G                     &kp H         &kp J          &kp K         &kp L     &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z   &kp X         &kp C     &kp V    &kp B                     &kp N         &kp M          &kp COMMA     &kp DOT   &kp FSLH  &kp RSHFT
+&trans     &trans  &kp LEFT_WIN  &kp LALT  &trans                                           &trans         &kp LBKT      &kp RBKT  &trans    &trans
+                                           &kp RET  &kp DEL    &kp LG(TAB)    &kp GRAVE     &kp BACKSPACE  &kp SPACE
+                                           &mo 1    &kp LC(Z)  &mo 2          &kp CAPSLOCK  &kp LC(Y)      &kp LEFT_ALT
             >;
         };
 
@@ -83,9 +83,9 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // this gets it to the default installation orientation. (Remember to update the semicolons and commas after list itemsS),
+        // this gets it to the default installation orientation. (Remember to update the semicolons and commas after list itemsS),,
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
-        // activate layer 3 within 500ms of the trackball moving,
+        // activate layer 3 within 500ms of the trackball moving,,
         <&zip_temp_layer 3 500>;
 };
 
@@ -93,12 +93,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,,,,
+        // this gets it to the default installation orientation,,,,,,,
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,
         <&zip_xy_scaler 1 12>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };

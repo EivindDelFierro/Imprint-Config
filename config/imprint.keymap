@@ -118,7 +118,7 @@
         // this gets it to the default installation orientation (Remember to update the semicolons and commas after list items),,,
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
         // activate layer 3 within 500ms of the trackball moving,,,
-        <&zip_temp_layer 3 1000> on-layer = <0 5>;
+        <&zip_temp_layer 3 1000>;
 };
 
 //left hand trackball configuration

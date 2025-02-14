@@ -21,7 +21,7 @@
 
         LayoutSwitch {
             bindings = <&tog 5>;
-            key-positions = <76 81>;
+            key-positions = <78 79>;
             layers = <0 5>;
             require-prior-idle-ms = <1000>;
             timeout-ms = <500>;
@@ -115,9 +115,9 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // this gets it to the default installation orientation (Remember to update the semicolons and commas after list items),,,
+        // this gets it to the default installation orientation (Remember to update the semicolons and commas after list items),,,,
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
-        // activate layer 3 within 500ms of the trackball moving,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,
         <&zip_temp_layer 3 1000>;
 };
 
@@ -125,12 +125,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,
+        // this gets it to the default installation orientation,,,,
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,
         <&zip_xy_scaler 1 12>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };

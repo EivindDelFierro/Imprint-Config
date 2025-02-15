@@ -15,18 +15,13 @@
         f1_default {
             bindings = <&kp F1>;
             key-positions = <81 0>;
-            layers = <0>;
-        };
-
-        f1_colemak {
-            bindings = <&kp F1>;
-            key-positions = <81 0>;
-            layers = <0 1>;
+            layers = <0 5>;
         };
 
         LayoutSwitch {
             bindings = <&tog 1>;
             key-positions = <76 81>;
+            layers = <0 5>;
         };
     };
 

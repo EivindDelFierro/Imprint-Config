@@ -25,16 +25,16 @@
             >;
         };
 
-        Numpad_Nav_Layer {
+        Quick_Access_Layer {
             bindings = <
-&kp F1  &none  &none          &none         &none         &none                 &none  &none            &none            &none            &none            &none
-&none   &none  &none          &none         &none         &none                 &none  &none            &kp KP_DIVIDE    &kp KP_MULTIPLY  &none            &none
-&none   &none  &kp PAGE_DOWN  &kp UP        &kp PAGE_UP   &none                 &none  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_SUBTRACT  &none
-&none   &none  &kp LEFT       &kp DOWN      &kp RIGHT     &none                 &none  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS      &none
-&none   &none  &kp C_MUTE     &kp C_VOL_DN  &kp C_VOL_UP  &none                 &none  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &none            &none
-               &none          &none                                                                     &kp KP_NUMBER_0  &kp KP_DOT
-                                            &trans        &trans  &none         &to 0  &trans           &bt BT_SEL 0
-                                            &trans        &trans  &bt BT_CLR    &to 5  &trans           &bt BT_SEL 1
+&kp F1     &none      &none          &none      &none        &none                            &none  &none            &none            &none            &kp LA(LEFT)     &kp LA(RIGHT)
+&kp LC(W)  &kp LC(T)  &none          &none      &none        &none                            &none  &none            &kp KP_DIVIDE    &kp KP_MULTIPLY  &none            &none
+&none      &none      &kp PAGE_DOWN  &kp UP     &kp PAGE_UP  &kp C_VOLUME_UP                  &none  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_SUBTRACT  &none
+&none      &kp LC(A)  &kp LEFT       &kp DOWN   &kp RIGHT    &kp C_VOLUME_DOWN                &none  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS      &none
+&none      &none      &none          &kp LC(C)  &kp LC(V)    &kp C_MUTE                       &none  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &none            &none
+                      &none          &kp LC(F)                                                                        &kp KP_NUMBER_0  &kp KP_DOT
+                                                &trans       &trans             &none         &to 0  &trans           &bt BT_SEL 0
+                                                &trans       &trans             &bt BT_CLR    &to 5  &trans           &bt BT_SEL 1
             >;
         };
 
@@ -77,7 +77,7 @@
             >;
         };
 
-        Colemak {
+        Colemak_DH_Layer {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans         &trans
 &trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5            &kp N6  &kp N7  &kp N8  &kp N9  &kp N0         &trans
@@ -96,9 +96,9 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,,,,,
-        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;,,,,,,
-        // activate layer 3 within 500ms of the trackball moving,,,,,,
+        // this gets it to the default installation orientation,,,,,,,,
+        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;,,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,
         <&zip_temp_layer 3 1000>;
 };
 
@@ -106,12 +106,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,,,,,
-        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,,,,,,,
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,
+        // this gets it to the default installation orientation,,,,,,,,
+        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,
         <&zip_xy_scaler 1 12>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
